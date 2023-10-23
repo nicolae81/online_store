@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} View details - {{ category }} {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <br><br>
+            <div class="card text-center">
+                <div class="card-header">
+                    View details
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ category }}</h5>
+                    <p class="card-text"><strong>Name category</strong> {{ category.name }}</p>
+                    <a href="{% url 'list-category' %}" class="btn btn-primary">Back</a>
+                </div>
+                <div class="card-footer text-body-secondary">
+                    <strong>Create at: </strong> {{ category.created_at | date:"d-m-Y H:i:s" }} / <strong>Updated at:</strong> {{ category.updated_at | date:"d-m-Y H:i:s" }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

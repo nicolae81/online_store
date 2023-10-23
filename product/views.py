@@ -1,9 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView
 from django.urls import reverse_lazy
 from manage_users.models import History
 from product.models import Product
-from product.forms import ProductForm
+from product.forms import ProductForm, ProductUpdateForm
 from datetime import datetime
 
 
@@ -36,5 +37,27 @@ class ProductListView(ListView):
 
     def get_queryset(self):
         return Product.objects.all()
+
+class ProductUpdateView(ListView):
+    template_name = 'product/update_products.html'
+    model = Product
+    form_class = ProductUpdateForm
+    success_url = reverse_lazy('list_products')
+
+class ProductDeleteView(ListView):
+    template_name = 'product/delete_products.html'
+    model = Product
+    form_class = ProductUpdateForm
+    success_url = reverse_lazy('list_products')
+
+class ProductDetailView(ListView):
+    template_name = 'product/detail_products.html'
+    model = Product
+
+# @login_required()
+# def delete_product_modal(request, pk):
+#     Product.objects.filter(id=pk).delete()
+#     return redirect('list_products')
+
 
 

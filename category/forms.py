@@ -27,3 +27,14 @@ def clean(self):
 
     return cleaned_data
 
+
+class CategoryUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
+        widgets = {
+            'name': TextInput(attrs={'class': 'form-control',
+                                     'placeholder': 'Please enter the name of the category'})
+        }
+
