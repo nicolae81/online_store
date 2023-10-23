@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg bg-body-secondary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home_page' %}">Online Store</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home_page' %}">Home</a>
+                </li>
+
+            {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                        <li><a class="dropdown-item" href="{% url 'create-category' %}">Create a new category</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list-categories' %}">List of categories</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Product
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                        <li><a class="dropdown-item" href="{% url 'create-product' %}">Create a new product</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list-products' %}">List of products</a></li>
+                    </ul>
+                </li>
+                 </ul>
+
+                <div class="btn-group dropstart">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        My profile
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
+                        <li><a class="dropdown-item"
+                               href="{% url 'logout' %}">Logout, {{ request.user.username }}</a></li>
+                    </ul>
+                </div>
+
+            {% else %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>&nbsp
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'create-user' %}" class="btn btn-outline-success">Sign up</a>&nbsp
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+

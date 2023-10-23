@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}List of Product Categories{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>List of Product Categories</h1>
+    <div class="row">
+        {% for product in all_products %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-md-12">
+            <p>No product categories available.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{#{% block content %}#}
+{#    <h2>List of Products</h2>#}
+{#    <div class="container-fluid">#}
+{#        <div class="row">#}
+{#            <div class="col-md-8 offset-md-2">#}
+{#                    {% for product_category in product_categories %}#}
+{#                        <div class="alert alert-success alert-dismissible fade show"#}
+{#                         role="alert">#}
+{#                            {{ message }}#}
+{#                            <button type="button" class="btn-close"#}
+{#                                    data-bs-dismiss="alert"#}
+{#                                    aria-label="Close"></button>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    <div class="row">#}
+{#                {% if all_products %}#}
+{#                    {% for product in all_products %}#}
+{#                        <div class="col-md-3">#}
+{#                            <div class="card border-primary border-2">#}
+{#                                {% if product.profile %}#}
+{#                                    <img src="{{ product.profile.url }}"#}
+{#                                         class="card-img-top" width="300" height="200"#}
+{#                                         alt="img profile">#}
+{#                                {% else %}#}
+{#                                    <img src="{% static 'media/images/default.png' %}"#}
+{#                                         class="card-img-top" width="300" height="200"#}
+{#                                         alt="default image">#}
+{#                            </div>#}
+{#                        </div>#}
+{#            {% endif %}#}
+{#            {% endfor %}#}
+{#            {% endif %}#}
+{#    </div>#}
+{#    </div>#}
+{#{% endblock %}#}
