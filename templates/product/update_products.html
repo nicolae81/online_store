@@ -9,7 +9,7 @@
                 <br><br>
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text-center">Update - {{ product }}</h3>
+                        <h3 class="text-center">Update {{ product }}</h3>
                     </div>
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
@@ -18,7 +18,7 @@
                         </div>
                         <div class="card-footer text-center">
                             <button type="submit" class="btn btn-outline-success">Update</button>
-                            <a href="{% url 'list-product' %}" class="btn btn-outline-secondary">Cancel</a>
+                            <a href="{% url 'list-products' %}" class="btn btn-outline-secondary">Cancel</a>
                         </div>
                     </form>
                 </div>

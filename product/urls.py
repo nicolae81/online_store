@@ -7,4 +7,5 @@ urlpatterns = [
     path('update_product/<int:pk>',views.ProductUpdateView.as_view(), name='update-product'),
     path('delete_product/<int:pk>', views.ProductDeleteView.as_view(), name='delete-product'),
     path('details_product/<int:pk>', views.ProductDetailView.as_view(), name='details-product'),
+    path('delete_modal_product/<int:pk>/', views.delete_product_modal, name='delete-modal-product'),
 ]

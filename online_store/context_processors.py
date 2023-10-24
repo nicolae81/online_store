@@ -1,4 +1,7 @@
-from product.models import Product
 
-def get_all_products(request):
-    return {'products': Product.objects.all()}
+from category.models import Category
+
+
+def get_all_categories(request):
+    categories = Category.objects.all()
+    return {'categories': categories}

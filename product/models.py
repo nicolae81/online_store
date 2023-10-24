@@ -6,7 +6,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=400)
-    image = models.ImageField(upload_to='media/', null=True)
+    profile = models.ImageField(upload_to='profile/', null=True)
     price = models.DecimalField(max_digits=4, decimal_places=2)
     in_stock = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)

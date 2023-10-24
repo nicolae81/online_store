@@ -1,4 +1,3 @@
-import self
 from django import forms
 from django.forms import TextInput, Textarea, DateInput, Select
 from product.models import Product

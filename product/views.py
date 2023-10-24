@@ -38,11 +38,13 @@ class ProductListView(ListView):
     def get_queryset(self):
         return Product.objects.all()
 
+
 class ProductUpdateView(ListView):
     template_name = 'product/update_products.html'
     model = Product
     form_class = ProductUpdateForm
     success_url = reverse_lazy('list_products')
+
 
 class ProductDeleteView(ListView):
     template_name = 'product/delete_products.html'
@@ -50,14 +52,16 @@ class ProductDeleteView(ListView):
     form_class = ProductUpdateForm
     success_url = reverse_lazy('list_products')
 
+
 class ProductDetailView(ListView):
     template_name = 'product/detail_products.html'
     model = Product
 
-# @login_required()
-# def delete_product_modal(request, pk):
-#     Product.objects.filter(id=pk).delete()
-#     return redirect('list_products')
+
+@login_required()
+def delete_product_modal(request, pk):
+    Product.objects.filter(id=pk).delete()
+    return redirect('list_products')
 
 
 
