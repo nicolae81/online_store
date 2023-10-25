@@ -1,11 +1,15 @@
-from category import forms
 import django_filters
+from django import forms
+from product.models import Product
 
 
-class CategoryFilters(django_filters.FilterSet):
-    name = django_filters.CharField(lookup_expr='icontains', label='First name',
-                                           widget=forms.TextInput(attrs={'class': 'form-control'}))
-    created_at = django_filters.DateTimeField(lookup_expr='icontains', label='Created At',
-                                           widget=forms.TextInput(attrs={'class': 'form-control'}))
-    updated_at = django_filters.DateTimeField(lookup_expr='icontains', label='Updated At',
-                                           widget=forms.TextInput(attrs={'class': 'form-control'}))
+class ProductFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(
+        lookup_expr='icontains',
+        label='Title',
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+
+    class Meta:
+        model = Product
+        fields = ['name']

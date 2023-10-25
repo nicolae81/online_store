@@ -1,14 +1,20 @@
+
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
+
 from manage_users.models import History
+from product.filters import ProductFilter
+
 from product.models import Product
 from product.forms import ProductForm, ProductUpdateForm
 from datetime import datetime
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'product/create_product.html'
     model = Product
     form_class = ProductForm
@@ -25,12 +31,10 @@ class ProductCreateView(CreateView):
             history_text = f'{new_product.title} was successfully created on {datetime.now()}'
 
             History.objects.create(text=history_text)
-
-            History.objects.create(text=history_text, created_at=datetime.now(), updated_at=datetime.now(), product=new_product)
-        return redirect('list_products')
+        return redirect('list-products')
 
 
-class ProductListView(ListView):
+class ProductListView(LoginRequiredMixin,ListView):
     template_name = 'product/list_products.html'
     model = Product
     context_object_name = 'all_products'
@@ -38,22 +42,29 @@ class ProductListView(ListView):
     def get_queryset(self):
         return Product.objects.all()
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        get_all_products = Product.objects.all()
+        filters = ProductFilter(self.request.GET, queryset=get_all_products)
+        context['all_products'] = filters.qs
+        context['form_filters'] = filters.form
+        return context
 
-class ProductUpdateView(ListView):
+
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'product/update_products.html'
     model = Product
     form_class = ProductUpdateForm
-    success_url = reverse_lazy('list_products')
+    success_url = reverse_lazy('list-products')
 
 
-class ProductDeleteView(ListView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'product/delete_products.html'
     model = Product
-    form_class = ProductUpdateForm
-    success_url = reverse_lazy('list_products')
+    success_url = reverse_lazy('list-products')
 
 
-class ProductDetailView(ListView):
+class ProductDetailView(LoginRequiredMixin, DetailView):
     template_name = 'product/detail_products.html'
     model = Product
 

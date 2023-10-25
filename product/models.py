@@ -1,5 +1,5 @@
 from django.db import models
-from category.models import Category
+from category.models import Category, History
 
 
 class Product(models.Model):
@@ -28,11 +28,12 @@ class History(models.Model):
     def __str__(self):
         return f'{self.text}'
 
-    # class ProductHistory(models.Model):
-    #     text = models.TextField()
-    #     created_at = models.DateTimeField(auto_now_add=True)
-    #     updated_at = models.DateTimeField(auto_now=True)
-    #     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
-    #
-    #     def __str__(self):
-    #         return f'{self.text}'
+
+class ProductHistory(models.Model):
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f'{self.text}'

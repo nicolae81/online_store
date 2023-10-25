@@ -1,9 +1,41 @@
 {% extends "base.html" %}
+{% load static %}
+{% block title %} List of category {% endblock %}
 {% block content %}
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 offset-md-2">
+
+{#                <div class="card">#}
+{#                    <div class="card-header">#}
+{#                        <h3 class="text-center">Filters</h3>#}
+{#                    </div>#}
+
+                    <form method="get">
+                        <div class="card-body">
+                    <p>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                            Filter Categories
+                            </button>
+                    </p>
+                            <div style="min-height: 120px;">
+                                <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                                    <div class="card card-body" style="width: 300px;">
+                                      {{ form_filters.as_p }}
+                                          <div class="card-footer text-center">
+                                            <button type="submit" class="btn btn-success">Filters</button>
+                            <a href="{% url 'list-categories' %}" class="btn-bd-outline-secondary">Reset</a>
+                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+{#                </div>#}
+
                 <h1>List of Categories</h1>
                 {% if all_categories %}
                 <table class="table table-primary table table-striped">

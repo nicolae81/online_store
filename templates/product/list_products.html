@@ -16,6 +16,20 @@
         </div>
     </div>
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Filters</h3>
+                    </div>
+                    <form method="get">
+                        <div class="card-body">
+                            {{ form_filters.as_p }}
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-success">Filters</button>
+                            <a href="{% url 'list-products' %}" class="btn-bd-outline-secondary">Reset</a>
+                        </div>
+                    </form>
+                </div>
     <div class="d-flex flex-wrap">
         {% for product in all_products %}
             <div class="col-md-4">
