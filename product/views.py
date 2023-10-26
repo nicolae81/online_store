@@ -1,3 +1,4 @@
+from urllib import request
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -5,10 +6,10 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
-
+from .models import Product
 from manage_users.models import History
 from product.filters import ProductFilter
-
+from django.shortcuts import render
 from product.models import Product
 from product.forms import ProductForm, ProductUpdateForm
 from datetime import datetime
@@ -34,7 +35,7 @@ class ProductCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return redirect('list-products')
 
 
-class ProductListView(LoginRequiredMixin,ListView):
+class ProductListView(LoginRequiredMixin, ListView):
     template_name = 'product/list_products.html'
     model = Product
     context_object_name = 'all_products'
@@ -69,10 +70,12 @@ class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
 
 
+def products_by_category(reques, category_id):
+    products = Product.objects.filter(category=category_id)
+    return render(request, 'products/products_by_category.html', {'products': products})
+
+
 @login_required()
 def delete_product_modal(request, pk):
     Product.objects.filter(id=pk).delete()
     return redirect('list_products')
-
-
-

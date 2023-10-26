@@ -12,6 +12,7 @@ class CategoryForm(forms.ModelForm):
         widgets = {
             'name': TextInput(attrs={'class': 'form-control',
                                      'placeholder': 'Please enter the name of the category'})
+
         }
 
 

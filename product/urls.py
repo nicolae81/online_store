@@ -8,4 +8,6 @@ urlpatterns = [
     path('delete_product/<int:pk>', views.ProductDeleteView.as_view(), name='delete-product'),
     path('details_product/<int:pk>', views.ProductDetailView.as_view(), name='details-product'),
     path('delete_modal_product/<int:pk>/', views.delete_product_modal, name='delete-modal-product'),
+    # path('category/<int:category_id>/', views.products_by_category, name='products-by-category'),
+
 ]

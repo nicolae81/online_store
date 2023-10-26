@@ -23,7 +23,7 @@
                     <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
                         <li><a class="dropdown-item" href="{% url 'create-category' %}">Create a new category</a></li>
                         <li><a class="dropdown-item" href="{% url 'list-categories' %}">List of categories</a></li>
-                        <li><a class="dropdown-item" href="{% url 'list-categories' %}">All categories</a></li>
+{#                        <li><a class="dropdown-item" href="{% url 'list-categories' %}">All categories</a></li>#}
                     </ul>
                 </li>
 
@@ -35,6 +35,15 @@
                     <ul class="dropdown-menu" aria-labelledby="productDropdown">
                         <li><a class="dropdown-item" href="{% url 'create-product' %}">Create a new product</a></li>
                         <li><a class="dropdown-item" href="{% url 'list-products' %}">List of products</a></li>
+                    </ul>
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        All Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                        <li><a class="dropdown-item" href="{% url 'list-categories' %}">{{ category.categories }}</a></li>
                     </ul>
                 </li>
 
