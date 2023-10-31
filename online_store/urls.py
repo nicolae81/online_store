@@ -20,6 +20,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views
 
+
 from manage_users.forms import AuthenticationNewForm, PasswordChangeNewForm
 
 urlpatterns = [
@@ -36,5 +37,6 @@ urlpatterns = [
   path('manage_users', include('manage_users.urls')),
   path('category', include('category.urls')),
   path('product/', include('product.urls')),
+  path('orders/', include('orders.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

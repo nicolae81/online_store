@@ -2,7 +2,7 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 from category.forms import CategoryForm, CategoryUpdateForm

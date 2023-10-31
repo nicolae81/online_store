@@ -1,187 +1,279 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %} Home {% endblock %}
-
 {% block content %}
 
-<!--====================================================================================-->
-
-  <body>
-<main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Online Store</h1>
-        <p class="lead text-body-secondary"> Make it short and sweet, but not too short so folks don’t simply skip over
-            it entirely.</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-body-tertiary">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-           <img src= {% static 'images/Bucovina-Horse-150x113.jpg' %} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Your Image Description">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
+    <section class="hero" id="home">
+        <div class="hero-banner">
+            <h1>Exploring Bucovina</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+                explicabo debitis est autem dicta.
+            </p>
+            <a href="#tours" class="btn hero-btn">Explore ours amasing tours</a>
         </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src={% static 'images/Bucovina-Horse-Photos-150x150.jpg' %} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Your Image Description">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-              <img src={% static 'images/Bucovina-Horse-Pictures-150x150.jpg' %} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Your Image Description">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="section-title">
+            <h2>About <span>us</span></h2>
         </div>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src={% static 'images/stock-photo-sleepy-bucovinean-sheperd-puppy.jpg' %} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Your Image Description">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
+        <div class="section-center about-center">
+            <div class="about-img">
+                <img
+                        src="/static/images/about.jpeg"
+                        class="about-photo"
+                        alt="awesome beach"
+                />
             </div>
-          </div>
+            <article class="about-info">
+                <h3>Explore the Difference</h3>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur
+                    quisquam harum nam cumque temporibus explicabo dolorum sapiente odio
+                    unde dolor?
+                </p>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur
+                    quisquam harum nam cumque temporibus explicabo dolorum sapiente odio
+                    unde dolor?
+                </p>
+                <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+            </article>
         </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src={% static 'images/stock-photo-sleeping-cutie.jpg' %} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Your Image Description">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
+    </section>
+
+    <section class="section services" id="services">
+        <div class="section-title">
+            <h2>Our <span>Services</span></h2>
         </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src={% static 'images/stock-photo-furry-bucovinean-shepard-puppy.jpg' %} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Your Image Description">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        <div class="section-center services-center">
+            <article class="service">
+                <span class="service-icon"><i class="fas fa-wallet fa-fw"></i></span>
+                <div class="service-info">
+                    <h4 class="service-title">saving money</h4>
+                    <p class="service-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Asperiores, officia.
+                    </p>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
+            </article>
+
+            <article class="service">
+                <span class="service-icon"><i class="fas fa-tree fa-fw"></i></span>
+                <div class="service-info">
+                    <h4 class="service-title">endless hiking</h4>
+                    <p class="service-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Asperiores, officia.
+                    </p>
+                </div>
+            </article>
+
+            <article class="service">
+                <span class="service-icon"><i class="fas fa-socks fa-fw"></i></span>
+                <div class="service-info">
+                    <h4 class="service-title">amazing comfort</h4>
+                    <p class="service-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Asperiores, officia.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" id="tours">
+        <div class="section-title">
+            <h2> Amasing <span>Tours</span></h2>
         </div>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src={% static 'images/stock-photo-selling-towels-made-national-style-romania.jpg' %} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Your Image Description">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        <div class="section-center featured-center">
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/tour-1.jpeg" class="tour-img" alt=""/>
+                    <p class="tour-date">November 26th, 2023</p>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <img src={% static 'images/stock-photo-traditional-painted-easter-eggs-bucovina-region-romania.jpg' %} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Your Image Description">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <div class="tour-info">
+                    <div class="tour-title">
+                        <h4>Bucovina Adventure</h4>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
+                        vitae tempore voluptatum maxime reprehenderit eum quod
+                        exercitationem fugit, qui corporis.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-           <img src= {% static 'images/plesa-village.jpg' %} class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Your Image Description">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </article>
+
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/stock-photo-vama-village.jpg" class="tour-img" alt=""/>
+                    <p class="tour-date">January 1th, 2024</p>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
+                <div class="tour-info">
+                    <h4>Best of Moldovita</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
+                        vitae tempore voluptatum maxime reprehenderit eum quod
+                        exercitationem fugit, qui corporis.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/tour-3.jpeg" class="tour-img" alt=""/>
+                    <p class="tour-date">december 15th, 2023</p>
+                </div>
+                <div class="tour-info">
+                    <h4>Explore </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
+                        vitae tempore voluptatum maxime reprehenderit eum quod
+                        exercitationem fugit, qui corporis.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+
+
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/stock-photo-vama-village.jpg" class="tour-img" alt=""/>
+                    <p class="tour-date">december 5th, 2023</p>
+                </div>
+                <div class="tour-info">
+                    <h4>Highlights</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
+                        vitae tempore voluptatum maxime reprehenderit eum quod
+                        exercitationem fugit, qui corporis.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/mountain-romania.jpg.jpeg" class="tour-img" alt=""/>
+                    <p class="tour-date">december 21th, 2023</p>
+                </div>
+                <div class="tour-info">
+                    <h4>Highlights</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
+                        vitae tempore voluptatum maxime reprehenderit eum quod
+                        exercitationem fugit, qui corporis.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+
+
+
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/carpatian-mountains.jpg" class="tour-img" alt=""/>
+                    <p class="tour-date">january 7th, 2024</p>
+                </div>
+                <div class="tour-info">
+                    <h4>Mountains</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
+                        vitae tempore voluptatum maxime reprehenderit eum quod
+                        exercitationem fugit, qui corporis.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-</main>
-
-<footer class="text-body-secondary py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-  </div>
-</footer>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-    </body>
-</html>
-
+    <footer class="section footer">
+        <ul class="footer-links">
+            <li>
+                <a href="#home" class="footer-link">home</a>
+            </li>
+            <li>
+                <a href="#about" class="footer-link">about us</a>
+            </li>
+            <li>
+                <a href="#tours" class="footer-link">amasing tours</a>
+            </li>
+        </ul>
+        <ul class="footer-icons">
+            <li>
+                <a href="https://www.twitter.com" target="_blank" class="footer-icon"
+                ><i class="fab fa-facebook"></i
+                ></a>
+            </li>
+            <li>
+                <a href="https://www.twitter.com" target="_blank" class="footer-icon"
+                ><i class="fab fa-twitter"></i
+                ></a>
+            </li>
+        </ul>
+        <div style="display: inline-flex;">
+            <p class="copyright">
+                Adresa: Ors. Suceava, Nr 123.
+                <span id="date"></span>
+            </p>
+            &nbsp&nbsp
+            <p class="copyright">
+                Numar de contact : 1234567.
+            </p>
+            &nbsp&nbsp
+            <p class="copyright">
+                CUI &copy; 12345 &copy;A123.
+            </p>
+            &nbsp
+            <p class="copyright">
+                IBAN: Romanian Banc.
+            </p>
+        </div>
+        <div style="display: inline-flex;">
+            <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="nofollow">
+                <img style="width:250px;margin:5px;" src="https://wpfitness.eu/wp-content/uploads/2022/10/anpc-sal.png"
+                     lt="Solutionarea Alternativa a Litigiilor">
+            </a><br/>
+            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="nofollow">
+                <img style="width:250px;margin:5px;" src="https://wpfitness.eu/wp-content/uploads/2022/10/anpc-sol.png"
+                     alt="Solutionarea Online a Litigiilor">
+            </a>
+        </div>
+    </footer>
 {% endblock %}

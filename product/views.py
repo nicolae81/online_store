@@ -6,7 +6,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
-from .models import Product
 from manage_users.models import History
 from product.filters import ProductFilter
 from django.shortcuts import render
@@ -70,9 +69,9 @@ class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
 
 
-def products_by_category(reques, category_id):
-    products = Product.objects.filter(category=category_id)
-    return render(request, 'products/products_by_category.html', {'products': products})
+def products_by_category(request, pk):
+    products = Product.objects.filter(category=pk)
+    return render(request, 'product/products_by_category.html', {'products': products})
 
 
 @login_required()

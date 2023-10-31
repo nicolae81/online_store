@@ -4,6 +4,7 @@
 
 {% block content %}
 <div class="container-fluid">
+<br><br><br>
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <br><br>
@@ -17,7 +18,8 @@
                     <a href="{% url 'list-categories' %}" class="btn btn-primary">Back</a>
                 </div>
                 <div class="card-footer text-body-secondary">
-                    <strong>Create at: </strong> {{ category.created_at | date:"d-m-Y H:i:s" }} / <strong>Updated at:</strong> {{ category.updated_at | date:"d-m-Y H:i:s" }}
+                    <strong>Create at: </strong> {{ category.created_at | date:"d-m-Y H:i:s" }} /
+                    <strong>Updated at:</strong> {{ category.updated_at | date:"d-m-Y H:i:s" }}
                 </div>
             </div>
         </div>

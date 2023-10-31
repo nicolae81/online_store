@@ -1,61 +1,79 @@
 {% extends 'base.html' %}
-{% block title %}List of Product Categories{% endblock %}
 {% load static %}
+
+{% block title %}List of Product Categories{% endblock %}
+
 {% block content %}
-<div class="container-fluid mt-4">
-    <h1>List of Products</h1>
-    <div class="row row-col-4 row-cols-4 g-4">
-        <div class="col-md-12">
-            <br>
-            {% for message in messages %}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center">Filters</h3>
+    <div class="container-fluid mt-4">
+        <h1>List of Products</h1>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col-md-3">
+                <br>
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <form method="get">
-                        <div class="card-body">
+                {% endfor %}
+            </div>
+        </div>
+
+             <div class="col-md-7">
+        <form method="get">
+            <div class="card-body">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseWidthExample"
+                        aria-expanded="false" aria-controls="collapseWidthExample">
+                    Filter Products
+                </button>
+                <div style="min-height: 10px;">
+                    <div class="collapse" id="collapseWidthExample">
+                        <div class="card card-body" style="width: 300px;">
                             {{ form_filters.as_p }}
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-success">Filters</button>
+                                <a href="{% url 'list-categories' %}" class="btn btn-outline-secondary">Reset</a>
+                            </div>
                         </div>
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-success">Filters</button>
-                            <a href="{% url 'list-products' %}" class="btn-bd-outline-secondary">Reset</a>
-                        </div>
-                    </form>
+                    </div>
                 </div>
+            </div>
+        </form>
+    </div>
     <div class="d-flex flex-wrap">
         {% for product in all_products %}
-            <div class="col-md-4">
-                <div class="card border-primary border-2" style="max-height: 650px;">
+            <div class="container py-2 my-2">
+                <div class="card border-primary border-2" style="max-width: 400px; max-height: 600px;">
                     {% if product.profile %}
-                        <img src="{{ product.profile.url }}" class="card-img-top" width="400" height="300" alt="img profile">
+                        <img src="{{ product.profile.url }}" class="card-img-top" width="200" height="200" alt="img profile">
                     {% else %}
-                        <img src="{% static 'images/stock-photo-sleeping-cutie.jpg' %}" class="card-img-top" width="400" height="300" alt="default image">
+                        <img src="{% static 'images/carpatian-mountains.jpg' %}" class="card-img-top" width="300" height="100" alt="default image">
                     {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">
-                            Title: {{ product.title }}
-                            Category: {{ product.category }}
-                        </h5>
-                        <h6 class="card-title">Price: {{ product.price }} RON
-                            Description: {{ product.description }}
+                        <h4 class="card-title">
+                            <p>Title: {{ product.title }}</p>
+                            <p>Category: {{ product.category }}</p>
+                        </h4>
+
+                        <h6 class="card-title">
+                            <p>Price: {{ product.price }} RON</p>
+                            <p>Description: {{ product.description }}</p>
                         </h6>
-                        <p class="card-text">Is in stock: {{ product.in_stock }}
-                            Is active: {{ product.is_active }}
-                        </p>
-                        <p class="card-text">Created at: {{ product.created_at }}
+
+                        <h6 class="card-text">
+                            <p>Is in stock: {{ product.in_stock }}</p>
+                            <br><br>
+                            <p>Is active: {{ product.is_active }}</p>
+                        </h6>
+                        <h6>
+                            Created at: {{ product.created_at }}
                             Updated at: {{ product.updated_at_at }}
-                        </p>
+                        </h6>
+
                         <div class="card-footer text-center">
                             <div class="dropdown">
-                                <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
                                     more actions
                                 </button>
                                 <ul class="dropdown-menu">
@@ -63,7 +81,7 @@
                                     <li><a class="dropdown-item" href="{% url 'delete-product' product.id %}">Delete</a></li>
                                     <li><a class="dropdown-item" href="{% url 'details-product' product.id %}">View details</a></li>
                                     <li>
-                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#product_{{ product.id }}">
+                                        <button type="button" class="dropdown-item" data-toggle="modal" data-target="#product_{{ product.id }}">
                                             Delete-modal
                                         </button>
                                     </li>
@@ -73,25 +91,167 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="trainer_{{ product.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="product_{{ product.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Delete - {{ product }}</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body">
                             Are you sure you want to delete {{ product }}?
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                             <a href="{% url 'delete-modal-product' product.id %}" class="btn btn-outline-danger">Yes</a>
                         </div>
                     </div>
                 </div>
             </div>
+
         {% empty %}
         {% endfor %}
     </div>
-</div>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#{% extends 'base.html' %}#}
+{#{% block title %}List of Product Categories{% endblock %}#}
+{#{% load static %}#}
+{#{% block content %}#}
+{#    <div class="container-fluid sm-4">#}
+{#        <h1>List of Products</h1>#}
+{#        <div class="row row-col-sm-4 row-cols-4 g-4">#}
+{#            <div class="col-sm-12">#}
+{#                <br>#}
+{#                {% for message in messages %}#}
+{#                    <div class="alert alert-success alert-dismissible fade show" role="alert">#}
+{#                        {{ message }}#}
+{#                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->#}
+{##}
+{#        <form method="get">#}
+{#            <div class="card-body">#}
+{#                <div class="col-sm-2">#}
+{#                <p>#}
+{#                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"#}
+{#                            data-bs-target="#collapseWidthExample" aria-expanded="false"#}
+{#                            aria-controls="collapseWidthExample">#}
+{#                        Filter Products#}
+{#                    </button>#}
+{#                </p>#}
+{#                <div style="min-height: 10px;">#}
+{#                    <div class="collapse collapse-horizontal" id="collapseWidthExample">#}
+{#                        <div class="card card-body" style="width: 300px;">#}
+{#                            {{ form_filters.as_p }}#}
+{#                            <div class="card-footer text-center">#}
+{#                                <button type="submit" class="btn btn-success">Filters</button>#}
+{#                                <a href="{% url 'list-categories' %}" class="btn-bd-outline-secondary">Reset</a>#}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#        </form>#}
+{#    </div>#}
+{#    <div class="d-flex flex-wrap">#}
+{#        {% for product in all_products %}#}
+{#            <div class="container py-2 my-2">#}
+{#                <div class="card border-primary border-2" style=" max-width: 400px;#}
+{#                max-height: 600px;">#}
+{#                    {% if product.profile %}#}
+{#                        <img src="{{ product.profile.url }}" class="card-img-top" width="200" height="200"#}
+{#                             alt="img profile">#}
+{#                    {% else %}#}
+{#                        <img src="{% static 'images/stock-photo-sleeping-cutie.jpg' %}" class="card-img-top" width="300"#}
+{#                             height="100" alt="default image">#}
+{#                    {% endif %}#}
+{#                    <div class="card-body">#}
+{#                        <h4 class="card-title">#}
+{#                            <p>Title: {{ product.title }}</p>#}
+{#                            <p>Category: {{ product.category }}</p>#}
+{#                        </h4>#}
+{##}
+{#                        <h6 class="card-title">#}
+{#                            <p>Price: {{ product.price }} RON</p>#}
+{#                            <p>Description: {{ product.description }}</p>#}
+{#                        </h6>#}
+{##}
+{#                        <h6 class="card-text">#}
+{#                            <p>Is in stock: {{ product.in_stock }}</p>#}
+{#                            <p>Is active: {{ product.is_active }}</p>#}
+{#                        <h6>#}
+{#                            Created at: {{ product.created_at }}#}
+{#                            Updated at: {{ product.updated_at_at }}#}
+{#                        </h6>#}
+{##}
+{#                        <div class="card-footer text-center">#}
+{#                            <div class="dropdown">#}
+{#                                <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown"#}
+{#                                        aria-expanded="false">#}
+{#                                    more actions#}
+{#                                </button>#}
+{#                                <ul class="dropdown-menu">#}
+{#                                    <li><a class="dropdown-item" href="{% url 'update-product' product.id %}">Update</a>#}
+{#                                    </li>#}
+{#                                    <li><a class="dropdown-item" href="{% url 'delete-product' product.id %}">Delete</a>#}
+{#                                    </li>#}
+{#                                    <li><a class="dropdown-item" href="{% url 'details-product' product.id %}">View#}
+{#                                        details</a></li>#}
+{#                                    <li>#}
+{#                                        <button type="button" class="dropdown-item" data-bs-toggle="modal"#}
+{#                                                data-bs-target="#product_{{ product.id }}">#}
+{#                                            Delete-modal#}
+{#                                        </button>#}
+{#                                    </li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="modal fade" id="trainer_{{ product.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"#}
+{#                 aria-hidden="true">#}
+{#                <div class="modal-dialog">#}
+{#                    <div class="modal-content">#}
+{#                        <div class="modal-header">#}
+{#                            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete - {{ product }}</h1>#}
+{#                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+{#                        </div>#}
+{#                        <div class="modal-body">#}
+{#                            Are you sure you want to delete {{ product }}?#}
+{#                        </div>#}
+{#                        <div class="modal-footer">#}
+{#                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>#}
+{#                            <a href="{% url 'delete-modal-product' product.id %}" class="btn btn-outline-danger">Yes</a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% empty %}#}
+{#        {% endfor %}#}
+{#    </div>#}
+{#{% endblock %}#}
