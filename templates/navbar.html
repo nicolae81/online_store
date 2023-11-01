@@ -2,8 +2,10 @@
 {#<nav class=" navbar navbar-light" style="background-color: #e3f2fd;">#}
 <nav class="navbar navbar-expand-lg bg-tertiary ">
     <div class="container-fluid">
-        <a class="navbar" href="{% url 'home_page' %}">Explore Bucovina</a>
-        <link rel="shortcut icon" href="/static/images/logo.svg" type="image/x-icon" />
+        <a class="navbar" href="{% url 'home_page' %}">
+            <link rel="shortcut icon" href="/static/images/logo_EB.png">
+        </a>
+
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +78,7 @@
                  <a href="{% url 'cart-list' %}" class="btn btn-outline-primary mx-3">
                     <i class="#"></i> Cart
                 </a>
-                <a href="#" class="btn btn-danger">
+                <a href="{% url 'wish-list' %}" class="btn btn-danger">
                     <i class="#"></i> Wishlist
                 </a>
             {% else %}
@@ -88,119 +90,4 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-{#{% load static %}#}
-{#<nav class="navbar navbar-expand-lg bg-body-secondary">#}
-{#    <div class="container-fluid">#}
-{#        <a class="navbar-brand" href="{% url 'home_page' %}">Explore Bucovina</a>#}
-{##}
-{#        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"#}
-{#                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
-{#            <span class="navbar-toggler-icon"></span>#}
-{#        </button>#}
-{#        <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
-{##}
-{#            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link active" aria-current="page" href="{% url 'home_page' %}">Home</a>#}
-{#                </li>#}
-{#                <li>#}
-{#                    <a href="#about" class="nav-link"> about </a>#}
-{#                </li>#}
-{##}
-{#                <li>#}
-{#                    <a href="#services" class="nav-link"> services </a>#}
-{#                </li>#}
-{##}
-{#                <li>#}
-{#                    <a href="#tours" class="nav-link"> tours</a>#}
-{#                </li>#}
-{##}
-{#                {% if user.is_authenticated %}#}
-{#                    <li class="nav-item dropdown">#}
-{#                        <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button"#}
-{#                           data-bs-toggle="dropdown" aria-expanded="false">#}
-{#                            Category#}
-{#                        </a>#}
-{#                        <ul class="dropdown-menu" aria-labelledby="categoryDropdown">#}
-{#                            <li><a class="dropdown-item" href="{% url 'create-category' %}">Create a new category</a>#}
-{#                            </li>#}
-{#                            <li><a class="dropdown-item" href="{% url 'list-categories' %}">List of categories</a></li>#}
-{##}
-{#                        </ul>#}
-{#                    </li>#}
-{##}
-{#                    <li class="nav-item dropdown">#}
-{#                        <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"#}
-{#                           data-bs-toggle="dropdown" aria-expanded="false">#}
-{#                            Product#}
-{#                        </a>#}
-{#                        <ul class="dropdown-menu" aria-labelledby="productDropdown">#}
-{#                            <li><a class="dropdown-item" href="{% url 'create-product' %}">Create a new product</a></li>#}
-{#                            <li><a class="dropdown-item" href="{% url 'list-products' %}">List of products</a></li>#}
-{#                        </ul>#}
-{#                    </li>#}
-{#                    <li class="nav-item dropdown">#}
-{#                        <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"#}
-{#                           data-bs-toggle="dropdown" aria-expanded="false">#}
-{#                            All Categories#}
-{#                        </a>#}
-{#                        <ul class="dropdown-menu" aria-labelledby="productDropdown">#}
-{#                            {% for category in categories %}#}
-{#                                <li><a class="dropdown-item"#}
-{#                                       href="{% url 'products-by-category' category.id %}">{{ category.name }}</a></li>#}
-{#                            {% endfor %}#}
-{#                        </ul>#}
-{#                    </li>#}
-{#                {% endif %}#}
-{#            </ul>#}
-{##}
-{#            {% if user.is_authenticated %}#}
-                {#              <div class="btn-group">#}
-                {#                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"#}
-                {#                            aria-expanded="false">#}
-                {#                        Shoping Card#}
-                {#                    </button>#}
-                {#                    <ul class="dropdown-menu">#}
-{#                                        <li><a class="dropdown-item" href="{% url 'password_change' %}"></a></li>#}
-                {#                        <li><a class="dropdown-item"></a>#}
-                {##}
-{#                                            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>#}
-                {#                <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-secondary">Add to Wishlist</a></li>#}
-                {##}
-                {#                    </ul>#}
-                {#                </div>#}
-{#                <div class="btn-group dropstart">#}
-{#                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"#}
-{#                            aria-expanded="false">#}
-{#                        My profile#}
-{#                    </button>#}
-{#                    <ul class="dropdown-menu">#}
-{#                        <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>#}
-{#                        <li><a class="dropdown-item"#}
-{#                               href="{% url 'logout' %}">Logout, {{ request.user.username }}</a></li>#}
-{#                    </ul>#}
-{#                </div>#}
-{##}
-{#            {% else %}#}
-{#                <div>#}
-{#                    <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>#}
-{##}
-{#                    <a href="{% url 'create-user' %}" class="btn btn-outline-success">Sign up</a>#}
-{#                </div>#}
-{#            {% endif %}#}
-{#        </div>#}
-{#    </div>#}
-{#</nav>#}
 </nav>

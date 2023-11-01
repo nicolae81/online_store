@@ -80,6 +80,8 @@
                                     <li><a class="dropdown-item" href="{% url 'update-product' product.id %}">Update</a></li>
                                     <li><a class="dropdown-item" href="{% url 'delete-product' product.id %}">Delete</a></li>
                                     <li><a class="dropdown-item" href="{% url 'details-product' product.id %}">View details</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'add-to-cart' product.id %}">Add to cart</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'add-to-wishlist' product.id %}">Add to wishlist</a></li>
                                     <li>
                                         <button type="button" class="dropdown-item" data-toggle="modal" data-target="#product_{{ product.id }}">
                                             Delete-modal

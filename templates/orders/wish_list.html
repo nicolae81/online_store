@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Wish List {% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid content-holder">
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {{ current_datetime|date:"d-m-Y H:i:s" }}
+                {% if cart_products %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>No.</th>
+                            <th>Cart</th>
+                            <th>Product name</th>
+                            <th>Unit Price</th>
+                            <th>Add</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for cart_product in cart_products %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ wish_list.product.title }}</td>
+                                <td>{{ wish_list.product.price }}</td>
+                                <td>{{ wish_list.quantity }}</td>
+                                <td>{{ wish_list.amount }} RON</td>
+                                <td>
+                                    <div class="card-footer text-center">
+                                        <a href="{% url 'move-favorites-to-cart' wish_list.id %}"
+                                           class="btn btn-outline-primary">Add to cart</a>
+                                    </div>
+                                </td>
+                                <td><a href="{% url 'delete-from-wishlist' wish_list.id %}"
+                                       class="btn btn-outline-secondary">Remove</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

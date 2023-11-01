@@ -7,41 +7,54 @@
 {% block content %}
 
     <div class="container-fluid content-holder">
-    <br><br><br>
+        <br><br><br>
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 {{ current_datetime|date:"d-m-Y H:i:s" }}
                 {% if cart_products %}
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th>Cart</th>
-                                <th>Product name</th>
-                                <th>Unit Price</th>
-                                <th>Quantity</th>
-                                <th>Amount</th>
-                            </tr>
+                        <tr>
+                            <th>Number</th>
+                            <th>Product name</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                            <th>Amount</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            {% for cart_product in cart_products %}
-                                <tr>
-                                    <td>{{ forloop.counter }}</td>
-                                    <td>{{ cart_product.product.title }}</td>
-                                    <td>{{ cart_product.product.price }}</td>
-                                    <td>{{ cart_product.quantity }}</td>
-                                    <td>{{ cart_product.amount }} RON</td>
-                                    <td></td>
-                                </tr>
-                            {% endfor %}
+                        {% for cart_product in cart_products %}
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><b>Total: </b></td>
-                                <td><b>{{ total }} RON</b></td>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ cart_product.product.title }}</td>
+                                <td>{{ cart_product.product.price }}</td>
+                                <td>
+                                    <a href="{% url 'decrease-quantity' cart_product.product.id %}"
+                                       class="btn btn-secondary btn-sm"> - </a>&nbsp;
+                                    {{ cart_product.quantity }}
+                                    &nbsp;<a href="{% url 'increase-quantity' cart_product.product.id %}"
+                                             class="btn btn-secondary btn-sm"> + </a>
+                                </td>
+                                <td><a href="{% url 'delete-from-cart' cart_product.id %}"
+                                       class="btn btn-outline-secondary">Delete</a></td>
+                                <td>{{ cart_product.amount }} RON</td>
+
                             </tr>
+                        {% endfor %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><b>Total {{ total }} RON</b></td>
+                        </tr>
                         </tbody>
                     </table>
+                    <div class="text-center">
+                        <a href="#" class="btn btn-primary">Buy now</a>
+                    </div>
                 {% else %}
                 {% endif %}
             </div>
