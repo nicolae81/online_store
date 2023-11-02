@@ -11,4 +11,5 @@ urlpatterns = [
     path('increase_quantity/<int:pk>/', views.increase_quantity, name='increase-quantity'),
     path('decrease_quantity/<int:pk>/', views.decrease_quantity, name='decrease-quantity'),
     path('move_favorites_to_cart/<int:pk>/', views.move_favorites_to_cart, name='move-favorites-to-cart'),
+    path('place_order/', views.PlaceOrderCreateView.as_view(), name='place-order'),
     ]
