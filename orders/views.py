@@ -114,6 +114,7 @@ def move_favorites_to_cart(request, pk):
 
     return redirect('cart-list')
 
+
 @login_required()
 def delete_from_cart(request, pk):
     if OrderCart.objects.filter(user_id=request.user.id, id=pk, wishlist_item=1).exists():
@@ -123,5 +124,16 @@ def delete_from_cart(request, pk):
         OrderCart.objects.filter(user_id=request.user.id, id=pk).delete()
 
     return redirect('cart-list')
+
+
+@login_required()
+def delete_from_wishlist(request, pk):
+    if OrderCart.objects.filter(user_id=request.user.id, id=pk, cart_item=1).exists():
+        OrderCart.objects.filter(user_id=request.user.id, id=pk).update(wishlist_item=0)
+        return redirect('wish-list')
+    else:
+        OrderCart.objects.filter(user_id=request.user.id, id=pk).delete()
+
+    return redirect('wish-list')
 
 
