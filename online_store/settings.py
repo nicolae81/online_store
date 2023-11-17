@@ -82,8 +82,8 @@ WSGI_APPLICATION = 'online_store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'oberondjango.mysql.eu.pythonanywhere-services.com',
+        'NAME': BASE_DIR / 'oberondjango',
     }
 }
 
