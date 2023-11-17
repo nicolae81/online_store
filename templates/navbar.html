@@ -1,12 +1,12 @@
 {% load static %}
-{#<nav class=" navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">#}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
     <div class="container-fluid">
-    <a href="#" class="navbar-brand">
+    <a href={% url 'home_page' %} class="navbar-brand">
     <!-- Logo Image -->
-{#    <img src="{% static '/images/logo_EB_2.png' %}" alt="#">#}
+    <img src="{% static '/images/logo_e_b.svg' %}" alt="#">
     <!-- Logo Text -->
-{#    <span class="text-uppercase font-weight-bold">E B</span>#}
+{#    <span class="text-uppercase font-weight-bold">Explore Bucovina</span>#}
 </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,24 +29,33 @@
                 </li>
 
                 {% if user.is_authenticated %}
+                     {% if perms.user.add_user %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Category
                         </a>
+
                         <div class="dropdown-menu" aria-labelledby="categoryDropdown">
                             <a class="dropdown-item" href="{% url 'create-category' %}">Create a new category</a>
+                            {% endif %}
+                        {% if perms.user.view_list_categories %}
                             <a class="dropdown-item" href="{% url 'list-categories' %}">List of categories</a>
-                        </div>
-                    </li>
 
+                        </div>
+
+                    </li>
+                    {% endif %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Product
                         </a>
+
                         <div class="dropdown-menu" aria-labelledby="productDropdown">
+                    {% if perms.user.add_user %}
                             <a class="dropdown-item" href="{% url 'create-product' %}">Create a new product</a>
+                            {% endif %}
                             <a class="dropdown-item" href="{% url 'list-products' %}">List of products</a>
                         </div>
                     </li>
