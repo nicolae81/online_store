@@ -2,14 +2,17 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 from category.forms import CategoryForm, CategoryUpdateForm
 from .filters import CategoryFilter
 from .models import Category, History
+from django.contrib.auth.decorators import permission_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(permission_required('user.add_category'), name='dispatch')
 class CategoryCreateView(SuccessMessageMixin, CreateView):
     template_name = 'category/create_category.html'
     model = Category

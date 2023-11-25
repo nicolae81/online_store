@@ -5,8 +5,6 @@
     <a href={% url 'home_page' %} class="navbar-brand">
     <!-- Logo Image -->
     <img src="{% static '/images/logo_e_b.svg' %}" alt="#">
-    <!-- Logo Text -->
-{#    <span class="text-uppercase font-weight-bold">Explore Bucovina</span>#}
 </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,11 +23,12 @@
                     <a class="nav-link" href="#services">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#tours">Tours</a>
+                    <a class="nav-link" href="#tours">Trips</a>
                 </li>
 
                 {% if user.is_authenticated %}
                      {% if perms.user.add_user %}
+                         {% if perms.user.add_category %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,6 +37,7 @@
 
                         <div class="dropdown-menu" aria-labelledby="categoryDropdown">
                             <a class="dropdown-item" href="{% url 'create-category' %}">Create a new category</a>
+                            {% endif %}
                             {% endif %}
                         {% if perms.user.view_list_categories %}
                             <a class="dropdown-item" href="{% url 'list-categories' %}">List of categories</a>
@@ -49,21 +49,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Product
+                            Our trip list
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="productDropdown">
                     {% if perms.user.add_user %}
-                            <a class="dropdown-item" href="{% url 'create-product' %}">Create a new product</a>
+                        {% if perms.user.add_product %}
+                            <a class="dropdown-item" href="{% url 'create-product' %}">Create a new trip</a>
                             {% endif %}
-                            <a class="dropdown-item" href="{% url 'list-products' %}">List of products</a>
+                            {% endif %}
+                            <a class="dropdown-item" href="{% url 'list-products' %}">List of trips</a>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="allCategoriesDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            All Categories
+                            All Trips
                         </a>
                         <div class="dropdown-menu" aria-labelledby="allCategoriesDropdown">
                             {% for category in categories %}

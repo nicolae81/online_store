@@ -5,11 +5,18 @@ from django.conf.global_settings import EMAIL_HOST_USER
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 
 from manage_users.forms import UserForm
 from manage_users.models import History
+from django.contrib.auth.decorators import permission_required
+
+
+@permission_required('user.add_user')
+def perm_add_user(request):
+    message = "You have access to this view because you have permission 'user.add_user'"
+    return render(request, 'navbar.html', {'message': message})
 
 
 class UserCreateView(CreateView):

@@ -11,8 +11,11 @@ from django.shortcuts import render
 from product.models import Product
 from product.forms import ProductForm, ProductUpdateForm
 from datetime import datetime
+from django.contrib.auth.decorators import permission_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(permission_required('user.add_product'), name='dispatch')
 class ProductCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'product/create_product.html'
     model = Product
