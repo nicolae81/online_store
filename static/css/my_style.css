@@ -209,7 +209,7 @@ Hero
 @media screen and (min-width: 768px) {
   .hero {
     background: linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
-      url('/static/images/main.jpeg') center/cover no-repeat;
+      url('/static/images/tour-2.jpeg') center/cover no-repeat;
   }
   .hero-banner {
     padding: 0;
@@ -230,6 +230,7 @@ About
 .about-info {
   margin-bottom: 2rem;
 }
+.carousel-fade
 
 @media screen and (min-width: 992px) {
   .about-center {
@@ -242,7 +243,7 @@ About
     margin-bottom: 0;
   }
 }
-@media screen and (min-width: 1170px) {
+@media screen and (min-width: 1200px) {
   .about-img::before {
     content: '';
     position: absolute;
@@ -256,6 +257,7 @@ About
 
   .about-img {
     position: relative;
+     transform: scale(0.7);
   }
   .about-photo {
     position: relative;
@@ -452,7 +454,7 @@ Navbar
 ===============
 */
 /* add :not(.nav-logo) to img */
-:not(.nav-logo) to img
+:not(.nav-logo) to img,
 .navbar {
   position: fixed;
   top: 0;

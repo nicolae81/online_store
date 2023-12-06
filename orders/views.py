@@ -152,7 +152,6 @@ class PlaceOrderCreateView(LoginRequiredMixin, CreateView):
     form_class = PlaceOrderForm
     success_url = reverse_lazy('home')
 
-
     def form_valid(self, form):
         if form.is_valid():
             new_order = form.save(commit=False)

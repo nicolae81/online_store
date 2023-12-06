@@ -33,12 +33,8 @@
                                 <td>{{ wish_list.product.price }}</td>
                                 <td>{{ wish_list.quantity }}</td>
                                 <td>{{ wish_list.amount }} RON</td>
-                                <td>
-                                    <div class="card-footer text-center">
-                                        <a href="{% url 'move-favorites-to-cart' wish_list.id %}"
-                                           class="btn btn-outline-primary">Add to cart</a>
-                                    </div>
-                                </td>
+                                <td><a href="{% url 'move-favorites-to-cart' wish_list.id %}"
+                                       class="btn btn-outline-primary">Add to cart</a></td>
                                <td><a href="{% url 'delete-from-wishlist' wish_list.id %}"
                                       class="btn btn-outline-secondary">Remove</a></td>
                             </tr>
