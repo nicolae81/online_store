@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ncw^839x(+41w90g7yeya@!&#rq2)17m+kd9cx-k*(#-&l0w2a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,12 +80,12 @@ WSGI_APPLICATION = 'online_store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
 #     "default": {
@@ -98,12 +98,12 @@ DATABASES = {
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'oberondjango.mysql.eu.pythonanywhere-services.com',
-#         'NAME': BASE_DIR / 'oberondjango',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'oberondjango.mysql.eu.pythonanywhere-services.com',
+        'NAME': BASE_DIR / 'oberondjango',
+    }
+}
 
 
 # Password validation
