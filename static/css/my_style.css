@@ -174,7 +174,7 @@ Hero
 .hero {
   min-height: 100vh;
   background:linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
-      url('static/images/tour-2.jpeg') center/cover no-repeat;
+      url('../images/tour-2.jpg') center/cover no-repeat;
   /*background: var(--clr-primary-5);*/
   display: flex;
   justify-content: center;
@@ -209,7 +209,7 @@ Hero
 @media screen and (min-width: 768px) {
   .hero {
     background: linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
-      url('/static/images/tour-2.jpeg') center/cover no-repeat;
+      url('/static/images/tour-2.jpg') center/cover no-repeat;
   }
   .hero-banner {
     padding: 0;
@@ -454,7 +454,7 @@ Navbar
 ===============
 */
 /* add :not(.nav-logo) to img */
-:not(.nav-logo) to img
+:not(.nav-logo),
 .navbar {
   position: fixed;
   top: 0;
