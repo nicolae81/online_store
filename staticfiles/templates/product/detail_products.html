@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} View details - {{ category }} {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+<br><br><br>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <br><br>
+            <div class="card text-center">
+                <div class="card-header">
+                    View trip details
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ product }}</h5>
+                    <p class="card-text"><strong>category:</strong> {{ product.category }}</p>
+                    <p class="card-text"><strong>description:</strong> {{ product.description }}</p>
+                    <p class="card-text"><strong>price:</strong> {{ product.price }}</p>
+                    <p class="card-text"><strong>is_active:</strong> {{ product.is_active }}</p><br>
+                    <p class="card-text"><strong>in_stock:</strong> {{ product.in_name }}</p>
+                    <p class="card-text"><strong>created_at:</strong> {{ product.crated_at }}</p>
+                    <p class="card-text"><strong>updated_at:</strong> {{ product.updated_at }}</p>
+                    <a href="{% url 'list-products' %}" class="btn btn-secondary">Back</a>
+                </div>
+                <div class="card-footer text-body-secondary">
+                    <strong>Create at: </strong> {{ product.created_at | date:"d-m-Y H:i:s" }} / <strong>Updated at:</strong> {{ product.updated_at | date:"d-m-Y H:i:s" }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

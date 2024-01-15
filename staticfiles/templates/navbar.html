@@ -1,0 +1,105 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="container-fluid">
+        <a href={% url 'home_page' %} class="navbar-brand">
+            <!-- Logo Image -->
+            <img src="{% static '/images/logo_e_b.svg' %}" alt="#">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home_page' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tours">Trips</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                    {% if perms.user.add_user %}
+                        {% if perms.user.add_category %}
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Category
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                            <a class="dropdown-item" href="{% url 'create-category' %}">Create a new category</a>
+                        {% endif %}
+                    {% endif %}
+                {% if perms.user.view_list_categories %}
+                    <a class="dropdown-item" href="{% url 'list-categories' %}">List of categories</a>
+
+                    </div>
+
+                    </li>
+                {% endif %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Our trip list
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="productDropdown">
+                            {% if perms.user.add_user %}
+                                {% if perms.user.add_product %}
+                                    <a class="dropdown-item" href="{% url 'create-product' %}">Create a new trip</a>
+                                {% endif %}
+                            {% endif %}
+                            <a class="dropdown-item" href="{% url 'list-products' %}">Trip List</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="allCategoriesDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            All Trips
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="allCategoriesDropdown">
+                            {% for category in categories %}
+                                <a class="dropdown-item"
+                                   href="{% url 'products-by-category' category.id %}">{{ category.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+            {% if user.is_authenticated %}
+                <div class="btn-group dropstart">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"> Profile</i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Logout, {{ request.user.username }}</a>
+                    </div>
+                </div>
+                <a href="{% url 'cart-list' %}" class="btn btn-outline-primary mx-3">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="{% url 'wish-list' %}" class="btn btn-danger">
+                    <i class="fas fa-heart"></i>
+                </a>
+            {% else %}
+                <div>
+                    <a href="{% url 'login' %}" class="btn btn-outline-success">Login</a>
+                    <a href="{% url 'create-user' %}" class="btn btn-outline-success">Sign up</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+</nav>

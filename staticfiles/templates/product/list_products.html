@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}List of Trips Categories{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid mt-4">
+        <br><br>
+        <h1>List of our Trips</h1>
+        <div class="row">
+            <!-- Left Column (Filters) -->
+            <div class="col-md-3">
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+                <form method="get">
+                    <div class="card-body">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                data-target="#collapseWidthExample"
+                                aria-expanded="false" aria-controls="collapseWidthExample">
+                            Filter Trips
+                        </button>
+                        <div style="min-height: 10px;">
+                            <div class="collapse" id="collapseWidthExample">
+                                <div class="card card-body" style="width: 300px;">
+                                    {{ form_filters.as_p }}
+                                    <div class="card-footer text-center">
+                                        <button type="submit" class="btn btn-success">Filters</button>
+                                        &nbsp
+                                        <a href="{% url 'list-categories' %}"
+                                           class="btn btn-outline-secondary">Reset</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Right Column (Trip Cards) -->
+            <div class="row">
+                {% for product in all_products %}
+                    <div class="col-md-3">
+                        <div class="card border-primary border-2" style="max-width: 270px; max-height: 700px;">
+                            {% if product.profile %}
+                                <img src="{{ product.profile.url }}" class="card-img-top" width="200" height="200"
+                                     alt="img profile">
+                            {% else %}
+                                <img src="{% static 'images/tour-6.jpg' %}" class="card-img-top" width="200"
+                                     height="200" alt="default image">
+                            {% endif %}
+                            <div class="card-body">
+                                <h6 class="card-text">
+                                    <p>Title: {{ product.title }}</p>
+                                    <p>Category: {{ product.category }}</p>
+                                    <p>Price: {{ product.price }} RON</p>
+                                    <p>Description: {{ product.description }}</p>
+                                    {% if perms.user.add_user %}
+                                        <p>Is in stock: {{ product.in_stock }}</p>
+                                        <p>Is active: {{ product.is_active }}</p>
+                                        <p>Created at: {{ product.created_at }}</p>
+                                        <p>Updated at: {{ product.updated_at_at }}</p>
+                                    {% endif %}
+                                </h6>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown"
+                                            aria-expanded="false">
+                                        more actions
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        {% if perms.user.add_user %}
+                                            <li><a class="dropdown-item" href="{% url 'update-product' product.id %}">Update</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="{% url 'delete-product' product.id %}">Delete</a>
+                                            </li>
+                                        {% endif %}
+                                        <li><a class="dropdown-item" href="{% url 'details-product' product.id %}">View
+                                            details</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'add-to-cart' product.id %}">Add to
+                                            cart</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'add-to-wishlist' product.id %}">Add
+                                            to wishlist</a></li>
+                                        {% if perms.user.add_user %}
+                                            <li>
+                                                <button type="button" class="dropdown-item" data-toggle="modal"
+                                                        data-target="#product_{{ product.id }}">
+                                                    Delete-modal
+                                                </button>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="product_{{ product.id }}" tabindex="-1"
+                         aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <!-- Modal Content -->
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete - {{ product }}</h1>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete {{ product }}?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                    <a href="{% url 'delete-modal-product' product.id %}"
+                                       class="btn btn-outline-danger">Yes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

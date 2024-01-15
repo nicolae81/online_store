@@ -1,0 +1,366 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+{% block content %}
+    <section class="hero" id="home">
+        <div class="hero-banner">
+            <h1>Exploring Bucovina</h1>
+            <p>
+                Discover Bucovina! Legendary Stories, Unlimited Hikes, Amazing Comfort! Your adventure in the heart
+                Moldova starts here.
+            </p>
+            <a href="#tours" class="btn hero-btn">Explore ours amasing trips</a>
+        </div>
+    </section>
+    <!--------------------------------------------------------------------------------------------------------------->
+    <section class="section" id="about">
+        <div class="section-title">
+            <h2>About <span>Bucovina</span></h2>
+        </div>
+        <div class="section-center about-center">
+            <div class="about-img">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-interval="10000">
+                            <img src="/static/images/carousel1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/static/images/carousel2.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/static/images/carousel3.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-target="#carouselExampleFade"
+                            data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-target="#carouselExampleFade"
+                            data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </button>
+                </div>
+            </div>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="about-info">
+                <h3>Magical lands</h3>
+                <p>
+                    Magica Bucovina, located in the northwest of Moldova, stands out for its legendary stories. The
+                    nature of
+                    modeled this area, turning it into an impressive pastel, full of nobility and solemnity,
+                    resembling a vast natural amphitheater descending in steps from west to east.
+                </p>
+                <p>
+                    From the heights of the Călimani and Bistrita Mountains to the low region of the meadow,
+                    the attractions of Bucovina are inexhaustible.
+                    Parallel rows of hills, covered with imposing forests of fir, beech or spruce, sprinkled with
+                    meadows and hayfields that keep their green hue unchanged until the snow falls, follow each other
+                    like
+                    frozen waves stretching far into the distance.
+                </p>
+                <p>
+                    I would never have thought of Bucovina as a perfect destination for active tourism, everyone
+                    knows that Bucovina is famous for its old painted churches and monasteries, UNESCO monuments, may
+                    precisely for religious tourism (pilgrimages or individual visits to monasteries).
+                </p>
+                <p>
+                    If you're into rock climbing or archery parks, ziplines, swimming pools or lounging in the air
+                    free, Ariniș Amusement Park, together with its partners from Escalada Adventure Park,
+                    Agrement Kiralida, or Climbing Zone can offer you days full of adventures.
+                    Do you want to go hiking? You have countless marked routes, of various degrees of difficulty.
+                    Bucovina is a land full of countless attractions, from picturesque towns to spectacular
+                    Rarau Mountains, Călimani, Bistriței or Zugreni Gorges. Bucovina is also a land of
+                    natural reserves that house rare species of flowers (the meadows of Ponoare, the reserve of
+                    dwarf birch from Lucian or the bear grape from Moldova – Sulica), forestry
+                    (the secular forest of Slatioara, the secular forests of Giumalau and Zamostea) and geological
+                    (Pojorâta, Cheile Zugreni, 12 Apostoli Complex)
+                </p>
+                <p>
+                    Bucovina is known throughout the world for the monasteries built by former rulers and boyars
+                    Moldovans at the end of the 15th and the beginning of the 16th century, each painted with
+                    its specific color: Voronet (blue), Humor (red), Sucevița (green), Moldovița (yellow),
+                    Tree (color combination).
+
+                    Eight of the painted churches were registered in the Unesco World Cultural Heritage (Voroneț,
+                    Humor, Moldovița, Sucevița, Suceava, Arbore, Pătrauti, Probota).
+                </p>
+                <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+            </article>
+
+        </div>
+    </section>
+    <!--------------------------------------------------------------------------------------------------------------->
+    <section class="section services" id="services">
+        <div class="section-title">
+            <h2>Grate <span>Services</span></h2>
+        </div>
+        <div class="section-center services-center">
+            <article class="service">
+                <span class="service-icon"><i class="fas fa-wallet fa-fw"></i></span>
+                <div class="service-info">
+                    <h4 class="service-title">Saving money</h4>
+                    <p class="service-text">
+                        A great adventure doesn't have to cost a fortune!
+                        Discover exclusive offers and save with promotional packages, discounts
+                        early and loyal member benefits.
+                    </p>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="service">
+                <span class="service-icon"><i class="fas fa-tree fa-fw"></i></span>
+                <div class="service-info">
+                    <h4 class="service-title">Endless hiking</h4>
+                    <p class="service-text">
+                        Explore without limits! Scenic trails for all levels, expert guides and packages
+                        personalized. Bring your passion for hiking to life amidst fascinating nature.
+                    </p>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="service">
+                <span class="service-icon"><i class="fas fa-socks fa-fw"></i></span>
+                <div class="service-info">
+                    <h4 class="service-title">Amazing comfort</h4>
+                    <p class="service-text">
+                        Combining luxury and relaxation, we offer top-class accommodation and premium amenities.
+                        Experience amazing comfort in a spectacular natural setting.
+                    </p>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="service">
+                <span class="service-icon"><i class="fas fa-church fa-fw"></i></span>
+                <div class="service-info">
+                    <h4 class="service-title">Cultural Immersion</h4>
+                    <p class="service-text">
+                        We organize activities that allow our tourists to discover the rich cultural heritage of
+                        Bucovina, such as visits to museums and monasteries, traditional craft workshops, shows
+                        folk or cultural events proposed by local authorities.
+                    </p>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="service">
+                <span class="service-icon"><i class="fas fa-hotel fa-fw"></i></span>
+                <div class="service-info">
+                    <h4 class="service-title">Wellness Retreats</h4>
+                    <p class="service-text">
+
+                        Our relaxation and revitalization packages in exceptional natural spaces in Bucovina. These
+                        packages may include yoga sessions, therapeutic massages, thermal baths or other activities
+                        wellness that offers you a relaxing and refreshing experience.
+                    </p>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="service">
+                <span class="service-icon"><i class="fas fa-table fa-fw"></i></span>
+                <div class="service-info">
+                    <h4 class="service-title">Culinary Delights</h4>
+                    <p class="service-text">
+                        We offer a unique gastronomic experience, including traditional local dishes or set menus
+                        gourmet to complete the pleasure of your visit with us and our operators.
+                        These are included in our predefined tours.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!--------------------------------------------------------------------------------------------------------------->
+    <section class="section" id="tours">
+        <div class="section-title">
+            <h2> Amasing <span>Trips</span></h2>
+        </div>
+        <div class="section-center featured-center">
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/tour-1.jpeg" class="tour-img" alt=""/>
+                    <p class="tour-date">November 26th, 2023</p>
+                </div>
+                <div class="tour-info">
+                    <div class="tour-title">
+                        <h4>Bucovina Adventure</h4>
+                    </div>
+                    <p>
+                        Enjoy unique experiences in Bucovina and at the end of the day relax in our glampings specially
+                        prepared for you.
+
+                        Adventure and relaxation have never been easier.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/manastirea-moldovita.jpg" class="tour-img" alt=""/>
+                    <p class="tour-date">January 10th, 2024</p>
+                </div>
+                <div class="tour-info">
+                    <h4>Best of Moldovita</h4>
+                    <p>
+                        Moldovita Monastery, in northern Moldova, Vatra Dornei the true jewel of medieval Moldavian art,
+                        Moldovita has very well-preserved paintings,
+                        keeping the brightness of the original colors.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/flori_de_munte.jpg" class="tour-img" alt=""/>
+                    <p class="tour-date">december 15th, 2023</p>
+                </div>
+                <div class="tour-info">
+                    <h4>Explore </h4>
+                    <p>
+                        Bucovina is also a land of natural reserves that house rare species of flowers: the hayfields
+                        from Ponoare, the dwarf birch reserve from Lucian or the bear grape reserve from Moldova-Sulița.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/CeramicaNeagra.jpg" class="tour-img" alt=""/>
+                    <p class="tour-date">december 5th, 2023</p>
+                </div>
+                <div class="tour-info">
+                    <h4>Painted eggs and pottery</h4>
+                    <p>
+                        The pottery workshop in the village of Marginea, a famous center of folk art, known especially
+                        for the black ceramics produced here and the painted eggs from Ciocanesti village.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/schi.jpg" class="tour-img" alt=""/>
+                    <p class="tour-date">december 19th, 2023</p>
+                </div>
+                <div class="tour-info">
+                    <h4>Skiing on the natural slope</h4>
+                    <p>
+                        "Rărau" slope - Moldovenesc Field. "Măgura" slope - Cârlibaba. Slope "Falcon" 2 - Gura
+                        Humorului.
+                        The "The road of the Tatars" slope - Mestecaniş
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+            <!--------------------------------------------------------------------------------------------------------------->
+            <article class="tour-card">
+                <div class="tour-img-container">
+                    <img src="/static/images/tour-6.jpg" class="tour-img" alt=""/>
+                    <p class="tour-date">january 7th, 2024</p>
+                </div>
+                <div class="tour-info">
+                    <h4>Mountains</h4>
+                    <p>
+                        Rărau massif, between fairy tale and reality.Do you want to go hiking? You have countless marked
+                        routes, of various degrees of difficulty.
+                    </p>
+                    <div class="tour-footer">
+                        <p>
+                            <span><i class="fas fa-map"></i></span>
+                        </p>
+                        <a href="{% url 'create-user' %}" class="btn">Log in for more details</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!--------------------------------------------------------------------------------------------------------------->
+    <footer class="section footer">
+        <ul class="footer-links">
+            <li>
+                <a href="#home" class="footer-link">home</a>
+            </li>
+            <li>
+                <a href="#about" class="footer-link">about us</a>
+            </li>
+            <li>
+                <a href="#tours" class="footer-link">amasing trips</a>
+            </li>
+        </ul>
+        <ul class="footer-icons">
+            <li>
+                <a href="https://www.twitter.com" target="_blank" class="footer-icon"
+                ><i class="fab fa-facebook"></i
+                ></a>
+            </li>
+            <li>
+                <a href="https://www.twitter.com" target="_blank" class="footer-icon"
+                ><i class="fab fa-twitter"></i
+                ></a>
+            </li>
+        </ul>
+        <!--------------------------------------------------------------------------------------------------------------->
+        <div style="display: inline-block;">
+            <p class="copyright">
+                Adresa: Ors. Suceava, Nr 123.
+                <span id="date"></span>
+            </p>
+            &nbsp
+            <p class="copyright">
+                Numar de contact : 1234567.
+            </p>
+            &nbsp
+            <p class="copyright">
+                CUI &copy; 12345 &copy;A123.
+            </p>
+            &nbsp
+            <p class="copyright">
+                IBAN: Romanian Banc.
+            </p>
+            &nbsp
+            <p class="copyright">
+                Proiectant: Tancau Nicolae, Project Manager la Software Development Academy
+            </p>
+            <!--------------------------------------------------------------------------------------------------------------->
+        </div>
+        <br>
+        <div style="display: inline-block;">
+            <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="nofollow">
+                <img style="width:250px;margin:5px;" src="https://wpfitness.eu/wp-content/uploads/2022/10/anpc-sal.png"
+                     alt="Solutionarea Alternativa a Litigiilor">
+            </a>&nbsp
+            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="nofollow">
+                <img style="width:250px;margin:5px;" src="https://wpfitness.eu/wp-content/uploads/2022/10/anpc-sol.png"
+                     alt="Solutionarea Online a Litigiilor">
+            </a>
+        </div>
+    </footer>
+{% endblock %}
