@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg width="100%" height="100%" viewBox="0 0 175 30" version="1.1" xmlns="http://www.w3.org/2000/svg"  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,0,7)">
+        <text x="2px" y="14.885px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:18px;">Explore</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-3,0)">
+        <text x="77px" y="22.316px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:20px;fill:rgb(0,182,138);">Bucovina</text>
+    </g>
+</svg>
