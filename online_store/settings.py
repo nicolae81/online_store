@@ -111,13 +111,6 @@ DATABASES = {
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'oberondjango.mysql.eu.pythonanywhere-services.com',
-#         'NAME': BASE_DIR / 'oberondjango',
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
