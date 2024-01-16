@@ -90,9 +90,9 @@ WSGI_APPLICATION = 'online_store.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'oberondjango$oberondjango',
         'USER': 'oberondjango',
-        'PASSWORD': 'your_database_password',
+        'PASSWORD': '#',
         'HOST': 'oberondjango.mysql.eu.pythonanywhere-services.com',  # For PythonAnywhere, this is typically 'your_username.mysql.pythonanywhere-services.com'
         'PORT': '3306',  # For MySQL, the default is '3306'
     }
