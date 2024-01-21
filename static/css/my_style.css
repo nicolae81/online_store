@@ -454,7 +454,7 @@ Navbar
 ===============
 */
 /* add :not(.nav-logo) to img */
-:not(.nav-logo),
+:not(.nav-logo) to img,
 .navbar {
   position: fixed;
   top: 0;
