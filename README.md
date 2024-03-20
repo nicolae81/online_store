@@ -1,3 +1,5 @@
+See the website at: https://oberondjango.eu.pythonanywhere.com
+
 This Django project aims to implement a tourism website that offers customers the opportunity to purchase a trip to the geographical area of ​​Romania called Bucovina.
 The entire website has been created to facilitate end-customers access in a user-friendly manner.
 The site offers functionalities such as: users, group trips, services, filters, categories.
